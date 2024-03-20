@@ -15,7 +15,7 @@ public static class MenuOptions
     }
     public static void MenuList()
     {
-        Console.WriteLine("Que opção deseja? 1. Listar Animes. 2. Adicionar. 3. Sair.");
+        Console.WriteLine("Que opção deseja? 1. Listar Animes. 2. Adicionar. 3. Excluir um anime. 4. Sair.");
 
         try
         {
@@ -34,11 +34,12 @@ public static class MenuOptions
                     ResetMenu();
                     break;
                 case 3:
-                    Console.WriteLine("Tchau tchau :)");
+                    RemoveAnime.DeleteAnimeById();
+                    ResetMenu();
                     break;
 
                 default:
-                    Console.WriteLine("Opção incorreta.");
+                    Console.WriteLine("Tchau tchau :)");
                     break;
             }
         }catch (Exception ex)
