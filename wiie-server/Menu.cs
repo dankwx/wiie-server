@@ -15,7 +15,10 @@ public static class MenuOptions
     }
     public static void MenuList()
     {
-        Console.WriteLine("Que opção deseja? 1. Listar Animes. 2. Adicionar. 3. Excluir um anime. 4. Sair.");
+        Console.WriteLine("***********************");
+        Console.WriteLine("Bem-vindo ao Animeko!");
+        Console.WriteLine("***********************");
+        Console.WriteLine("\nQue opção deseja?\n 1. Listar Animes.\n 2. Adicionar.\n 3. Excluir um anime.\n 4. Sair.");
 
         try
         {
@@ -25,21 +28,29 @@ public static class MenuOptions
             switch (escolhaNumber)
             {
                 case 1:
+                    Console.Clear();
                     ListAnimes.GetAnimes();
                     ResetMenu();
                     break;
 
                 case 2:
+                    Console.Clear();
                     AddAnime.InsertAnimeFromInput();
                     ResetMenu();
                     break;
                 case 3:
+                    Console.Clear();
                     RemoveAnime.DeleteAnimeById();
                     ResetMenu();
                     break;
+                case 4:
+                    Console.Clear();
+                    Console.WriteLine("Tchau tchau! :)");
+                    break;
 
                 default:
-                    Console.WriteLine("Tchau tchau :)");
+                    Console.WriteLine("Opção inválida, tente novamente.");
+                    ResetMenu();
                     break;
             }
         }catch (Exception ex)

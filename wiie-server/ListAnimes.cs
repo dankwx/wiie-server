@@ -3,7 +3,7 @@ using Npgsql;
 
 public static class ListAnimes
 {
-    public static void GetAnimes(string condition = "")
+    public static void GetAnimes(string condition = "") // theres only a "withid" condition
     {
         string query = "SELECT ";
 
