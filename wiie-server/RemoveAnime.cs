@@ -5,6 +5,7 @@ public static class RemoveAnime
 {
     public static void DeleteAnimeById()
     {
+        ListAnimes.GetAnimes("withid");
         Console.WriteLine("Insira o ID do anime que deseja excluir:");
         int idAnime;
         while (!int.TryParse(Console.ReadLine(), out idAnime))
