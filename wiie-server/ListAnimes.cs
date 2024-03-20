@@ -9,14 +9,15 @@ public static class ListAnimes
         {
             connection.Open();
 
-            using (var cmd = new NpgsqlCommand("SELECT name, genre FROM public.animes", connection))
+            using (var cmd = new NpgsqlCommand("SELECT name, genre, rating FROM public.animes", connection))
             {
                 using (var reader = cmd.ExecuteReader())
                 {
                     Console.WriteLine("Animes:");
                     while (reader.Read())
                     {
-                        Console.WriteLine($"Name: {reader.GetString(0)}, Genre: {reader.GetString(1)}");
+                        string rating = reader.IsDBNull(2) ? "Sem avaliação" : reader.GetInt16(2).ToString();
+                        Console.WriteLine($"Name: {reader.GetString(0)}, Genre: {reader.GetString(1)}, Rating: {rating}");
                     }
                 }
             }
