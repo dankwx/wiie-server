@@ -16,25 +16,37 @@ public static class MenuOptions
     public static void MenuList()
     {
         Console.WriteLine("Que opção deseja? 1. Listar Animes. 2. Adicionar. 3. Sair.");
-        string escolha = Console.ReadLine()!;
-        int escolhaNumber = int.Parse(escolha);
 
-        switch (escolhaNumber)
+        try
         {
-            case 1:
-                ListAnimes.GetAnimes();
-                ResetMenu();
-                break;
-                
-            case 2:
-                AddAnime.InsertAnimeFromInput();
-                ResetMenu();
-                break;
-            case 3: Console.WriteLine("Tchau tchau :)");
-                break;
+            string escolha = Console.ReadLine()!;
+            int escolhaNumber = int.Parse(escolha);
 
-            default: Console.WriteLine("Opção incorreta.");
-                break;
+            switch (escolhaNumber)
+            {
+                case 1:
+                    ListAnimes.GetAnimes();
+                    ResetMenu();
+                    break;
+
+                case 2:
+                    AddAnime.InsertAnimeFromInput();
+                    ResetMenu();
+                    break;
+                case 3:
+                    Console.WriteLine("Tchau tchau :)");
+                    break;
+
+                default:
+                    Console.WriteLine("Opção incorreta.");
+                    break;
+            }
+        }catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Console.WriteLine("Verifique se você está inserindo um número.");
+            Thread.Sleep(1000);
+            ResetMenu();
         }
 
     }
